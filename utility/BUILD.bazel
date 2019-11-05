@@ -1,0 +1,22 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library", "cc_test")
+
+
+cc_binary(
+    name = "hash_test",
+    srcs = ["hash_test.cpp"]
+)
+
+cc_binary(
+    name = "alloc_test",
+    srcs = ["alloc_test.cpp"]
+)
+
+cc_binary(
+    name = "bind_test",
+    srcs = ["bind_test.cpp"]
+)
+
+cc_binary(
+    name = "memory_test",
+    srcs = ["memory_test.cpp"]
+)
