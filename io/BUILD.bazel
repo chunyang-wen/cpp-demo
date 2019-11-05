@@ -1,0 +1,22 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library", "cc_test")
+
+
+cc_binary(
+    name = "ofstream_test",
+    srcs = ["ofstream_test.cpp"]
+)
+
+cc_binary(
+    name = "ifstream_test",
+    srcs = ["ifstream_test.cpp"]
+)
+
+cc_binary(
+    name = "istringstream_test",
+    srcs = ["istringstream_test.cpp"],
+)
+
+cc_binary(
+    name = "iomanip_test",
+    srcs = ["iomanip_test.cpp"],
+)
