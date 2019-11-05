@@ -3,12 +3,18 @@ load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library", "cc_test")
 
 cc_binary(
     name = "ofstream_test",
-    srcs = ["ofstream_test.cpp"]
+    srcs = ["ofstream_test.cpp"],
+    data = [
+        "//data:test_data",
+    ]
 )
 
 cc_binary(
     name = "ifstream_test",
-    srcs = ["ifstream_test.cpp"]
+    srcs = ["ifstream_test.cpp"],
+    data = [
+        "//data:test_data",
+    ]
 )
 
 cc_binary(

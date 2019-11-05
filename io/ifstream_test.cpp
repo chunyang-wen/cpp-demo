@@ -11,7 +11,7 @@
 
 int main(int argc, char* argv[]) {
 
-    std::string path = "test.txt";
+    std::string path = "data/test.txt";
     std::ifstream input(path, std::ios_base::in);
     double d1; input >> d1;
     input.get(); /* skip \n */
