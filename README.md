@@ -4,4 +4,4 @@ You should install bazel first. Please refer to [placeholder](xxx)
 
 ### Current support test
 
-+ [thread/mutext](/thread/)
++ [thread/mutex](/thread/)

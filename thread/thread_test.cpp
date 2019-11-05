@@ -24,7 +24,10 @@ int main() {
 
 
     std::mutex m;
+
+    // C++ 17
     std::scoped_lock<std::mutex> l(m);
+
     demo::Person person;
     person.set_name("hi");
     std::cout << person.name() << std::endl;

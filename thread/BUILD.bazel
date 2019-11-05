@@ -14,36 +14,10 @@
 
 load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library", "cc_test")
 
-cc_library(
-    name = "hello",
-    srcs = ["hello.cc"],
-    hdrs = ["hello.h"],
-    linkopts = ['-std=c++17'],
-    deps = [
-        "@com_google_absl//absl/strings",
-    ],
-)
-
-cc_test(
-    name = "hello_test",
-    srcs = ["hello_test.cc"],
-    deps = [
-        ":hello",
-        "@com_google_googletest//:gtest_main",
-    ],
-)
 
 cc_binary(
-    name = "hello_main",
-    srcs = ["hello_main.cc"],
-    deps = [
-        ":hello",
-    ],
-)
-
-cc_binary(
-    name = "hello_world",
-    srcs = ["hello_world.cpp"],
+    name = "thread_test",
+    srcs = ["thread_test.cpp"],
     deps = [
         "//thread/proto:person_cc_proto",
     ],
