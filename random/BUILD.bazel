@@ -1,0 +1,4 @@
+cc_binary(
+    name = "random_test",
+    srcs = ["random_test.cpp"]
+)
