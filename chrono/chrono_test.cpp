@@ -16,7 +16,8 @@ void normal_clock() {
     using TP = std::chrono::system_clock::time_point;
     TimePoint start = std::chrono::system_clock::now();
     std::vector<int> vec(32);
-    std::fill(vec.begin(), vec.end(), 1);
+    // std::fill(vec.begin(), vec.end(), 1);
+    std::iota(vec.begin(), vec.end(), 1);
     std::cout << std::accumulate(vec.begin(), vec.end(), 0) << std::endl;
     TP end = std::chrono::system_clock::now();
     std::chrono::duration<double> diff = end - start;

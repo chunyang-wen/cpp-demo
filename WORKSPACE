@@ -45,3 +45,9 @@ http_archive(
 load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
 rules_proto_dependencies()
 rules_proto_toolchains()
+
+# new_local_repository(
+#     name = "fmt",
+#     path = "/path/to/fmt/output",  # folder contains include, lib
+#     build_file = "fmt/BUILD.fmt",
+# )

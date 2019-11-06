@@ -1,0 +1,6 @@
+cc_binary(
+    name = "fmt_test",
+    srcs = ["fmt_test.cpp"],
+    copts = ["-Iexternal/fmt/include"],
+    deps = ["@fmt//:fmtlib"],
+)
