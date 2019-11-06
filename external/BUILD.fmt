@@ -1,0 +1,34 @@
+# genrule must specify all the outputs. It can not output a folder.
+#
+# !!Currently not working!!
+#
+genrule(
+    name = "fmt",
+    # srcs = glob(["**/*.cc", "**/*.cpp", "CMakeLists.txt"]),
+    srcs = glob(["**"]),
+    outs = ["libfmt.a"],
+    cmd = """
+    pwd
+    pushd $$(dirname $(location CMakeLists.txt));
+    # cd external/fmt;
+    pwd
+    ls -al;
+    mkdir -p build output;
+    ls -al;
+    cd build;
+    pwd
+    cmake .. -DCMAKE_INSTALL_PREFIX=../output
+    make
+    make install
+    popd
+    """,
+)
+
+cc_library(
+    name="fmtlib",
+    srcs = glob(["output/lib/*.a"]),
+    hdrs = glob(["output/include/fmt/*.h"]),
+    visibility = ["//visibility:public"],
+    data = [":fmt"],
+# deps=["//fmt:libfmt.a"],
+)

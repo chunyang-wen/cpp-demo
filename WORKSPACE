@@ -3,6 +3,7 @@
 workspace(name = "cpp_demo")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository", "git_repository")
 
 # abseil-cpp
 http_archive(
@@ -46,8 +47,54 @@ load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_
 rules_proto_dependencies()
 rules_proto_toolchains()
 
+#
+# new_local_repository: None-bazel
+#
+
+#
+# LOCAL_FMT_REPO_BUILD = """
+# cc_library(
+#     name="fmtlib",
+#     srcs = glob(["lib/*.a"]),
+#     hdrs = glob(["include/fmt/*.h"]),
+#     visibility = ["//visibility:public"],
+# )"""
+#
+
 # new_local_repository(
 #     name = "fmt",
 #     path = "/path/to/fmt/output",  # folder contains include, lib
 #     build_file = "fmt/BUILD.fmt",
+# )
+
+
+#
+# new_git_repository: None-bazel
+#
+
+#GIT_FMT_REPO_BUILD = """
+#genrule(
+#    name = "fmt_genrule",
+#    srcs = glob(["**/*.cc", "**/*.cpp"]),
+#    outs = ["output/lib/libfmt.a"],
+#    cmd = "mkdir -p build output;cd build;" +
+#          "mkdir -p output;cmake .. -DCMAKE_INSTALL_PREFIX=../output ;" +
+#           "make; make install",
+#)
+#
+#cc_library(
+#    name="fmtlib",
+#    srcs = glob(["output/lib/*.a"]),
+#    hdrs = glob(["output/include/fmt/*.h"]),
+#    visibility = ["//visibility:public"],
+#)
+#
+#"""
+
+# new_git_repository(
+#     name = "fmt",
+#     remote = "https://github.com/fmtlib/fmt.git",
+#     build_file = "BUILD.fmt",
+#     #build_file_content = GIT_FMT_REPO_BUILD,
+#     commit = "f1559e1d56a45fb7b7a23f5447173ae6b408d78c",
 # )
