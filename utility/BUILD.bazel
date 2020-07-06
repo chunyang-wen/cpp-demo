@@ -20,3 +20,8 @@ cc_binary(
     name = "memory_test",
     srcs = ["memory_test.cpp"]
 )
+
+cc_binary(
+    name = "size_test",
+    srcs = ["size_test.cpp"]
+)
