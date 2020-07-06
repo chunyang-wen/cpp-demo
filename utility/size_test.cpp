@@ -26,5 +26,7 @@ public:
 int main() {
     int* a;
     cout << sizeof(Pointer<sizeof(a)>::Type) << endl;
+    int b;
+    cout << sizeof(Pointer<sizeof(b)>::Type) << endl;
 }
 
