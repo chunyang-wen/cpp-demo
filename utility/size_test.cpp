@@ -6,19 +6,19 @@ using namespace std;
 
 template<int n>
 class Pointer {
-    public:
+public:
     typedef int Type;
 };
 
 template<>
 class Pointer<8> {
-    public:
+public:
     typedef long Type;
 };
 
 template<>
 class Pointer<4> {
-    public:
+public:
     typedef int Type;
 };
 
